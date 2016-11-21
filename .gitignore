@@ -1,0 +1,12 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/OCAD.VC.VC.opendb
+/OCAD.VC.db
+/OCADAX/Debug
+/OCAD/Debug
+/lib/win32
+/Include
+/Debug
+/ConsolePane/Debug
