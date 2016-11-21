@@ -1,0 +1,29 @@
+// OCAD.idl : OCAD.exe 的类型库源
+
+// 此文件将由 MIDL 编译器处理以产生
+// 类型库(OCAD.tlb)。
+
+[ uuid(E6F6A255-DAFC-4263-A653-8C7CACD43CB4), version(1.0) ]
+library OCAD
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  COCADDoc 的主调度接口
+	
+	[ uuid(A521C422-334D-4899-881F-EBEA50DCB856) ]
+	dispinterface IOCAD
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  COCADDoc 的类信息
+	
+	[ uuid(4B3DB332-8607-4A3E-97B9-81850B06D49F) ]
+	coclass COCADDoc
+	{
+		[default] dispinterface IOCAD;
+	};
+};
