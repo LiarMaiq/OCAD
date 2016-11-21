@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OCADAX", "OCADAX\OCADAX.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsolePane", "ConsolePane\ConsolePane.vcxproj", "{303F0A59-2544-4E3D-BEA7-C93E238EB674}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Commands", "Commands\Commands.vcxproj", "{3DA92865-4813-4E1E-9550-3EDB99E9079F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{303F0A59-2544-4E3D-BEA7-C93E238EB674}.Release|x64.Build.0 = Release|x64
 		{303F0A59-2544-4E3D-BEA7-C93E238EB674}.Release|x86.ActiveCfg = Release|Win32
 		{303F0A59-2544-4E3D-BEA7-C93E238EB674}.Release|x86.Build.0 = Release|Win32
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Debug|x64.ActiveCfg = Debug|x64
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Debug|x64.Build.0 = Debug|x64
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Debug|x86.ActiveCfg = Debug|Win32
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Debug|x86.Build.0 = Debug|Win32
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Release|x64.ActiveCfg = Release|x64
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Release|x64.Build.0 = Release|x64
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Release|x86.ActiveCfg = Release|Win32
+		{3DA92865-4813-4E1E-9550-3EDB99E9079F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

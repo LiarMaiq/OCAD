@@ -783,6 +783,8 @@ BOOL COCADApp::InitInstance()
 	//
 	// ³õÊ¼»¯Teigha
 	InitializeTeigha();
+	OdRxModulePtr pModCmds = ::odrxDynamicLinker()->loadModule(OdString("Commands_4.01src_14.dll"),false);
+
 
 	AfxEnableControlContainer();
 

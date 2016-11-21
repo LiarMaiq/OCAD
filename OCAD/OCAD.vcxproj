@@ -98,7 +98,7 @@
       <SubSystem>Windows</SubSystem>
       <RegisterOutput>true</RegisterOutput>
       <AdditionalDependencies>TD_ExamplesCommon.lib;TD_Key.lib;TD_PdfExport.lib;TD_PDFToolkit.lib;TD_Gs.lib;TD_Db.lib;TD_DbRoot.lib;TD_Gi.lib;TD_SpatialIndex.lib;TD_Ge.lib;TD_Root.lib;TD_Alloc.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

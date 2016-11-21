@@ -10,3 +10,7 @@
 /Include
 /Debug
 /ConsolePane/Debug
+/Commands/Debug
+/.vs/OCAD/v14
+/ipch
+/lib/win32_debug

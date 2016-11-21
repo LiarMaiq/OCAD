@@ -453,9 +453,10 @@ void COCADDoc::OnTest()
 	// TODO: 在此添加命令处理程序代码
 	//PrintModules(GetCurrentProcessId());
 	//cmdCtx()->dbUserIO()->getPoint(L"pt");
-	OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
-	pUserIO->getPoint(L"pt");
-	MessageBox(GetView()->GetSafeHwnd(), L"Test Complate", NULL, NULL);
+	//OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
+	//pUserIO->getPoint(L"pt");
+	//MessageBox(GetView()->GetSafeHwnd(), L"Test Complate", NULL, NULL);
+	ExecuteCommand("line");
 }
 
 

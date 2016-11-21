@@ -154,7 +154,7 @@ public:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnMove(int x, int y);
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };
 
 #ifndef _DEBUG  // OCADView.cpp 中的调试版本

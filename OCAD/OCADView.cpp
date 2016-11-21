@@ -54,7 +54,6 @@ BEGIN_MESSAGE_MAP(COCADView, CView)
 	ON_WM_CHAR()
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
-	ON_WM_MOVE()
 END_MESSAGE_MAP()
 
 // COCADView 构造/析构
@@ -697,7 +696,7 @@ void COCADView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CView::OnChar(nChar, nRepCnt, nFlags);
-	m_response.m_string = m_inpars.result();
+ 	m_response.m_string = m_inpars.result();
 	switch (nChar)
 	{
 	case VK_BACK:
@@ -731,10 +730,11 @@ void COCADView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 				switch (m_mode)
 				{
 				case kQuiescent:
-					/*if (m_response.m_string.isEmpty())
-						GetDocument()->ExecuteCommand(GetDocument()->recentCmdName());
+					if (m_response.m_string.isEmpty())
+						//GetDocument()->ExecuteCommand(GetDocument()->recentCmdName());
+						int a = 0;
 					else
-						GetDocument()->ExecuteCommand(m_response.m_string);*/
+						GetDocument()->ExecuteCommand(m_response.m_string);
 					break;
 
 				case kGetPoint:
@@ -823,9 +823,20 @@ void COCADView::OnLButtonUp(UINT nFlags, CPoint point)
 }
 
 
-void COCADView::OnMove(int x, int y)
-{
-	__super::OnMove(x, y);
 
-	// TODO: 在此处添加消息处理程序代码
+BOOL COCADView::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_ESCAPE:
+			OnChar(VK_ESCAPE, 0, 0);
+			break;
+		}
+	}
+	
+
+	return __super::PreTranslateMessage(pMsg);
 }
