@@ -96,6 +96,7 @@ private:
 
 private:
 	bool beginDragCallback(const OdGePoint3d& pt);
+	void destroyDevice();
 
 
 
@@ -155,6 +156,7 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnDestroy();
 };
 
 #ifndef _DEBUG  // OCADView.cpp 中的调试版本

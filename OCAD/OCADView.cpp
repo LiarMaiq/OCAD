@@ -54,6 +54,7 @@ BEGIN_MESSAGE_MAP(COCADView, CView)
 	ON_WM_CHAR()
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 // COCADView 构造/析构
@@ -839,4 +840,28 @@ BOOL COCADView::PreTranslateMessage(MSG* pMsg)
 	
 
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void COCADView::destroyDevice()
+{
+	m_pDevice.release();
+}
+
+void COCADView::OnDestroy()
+{
+	COCADDoc* pDoc = GetDocument();
+	//pDoc->OnCloseVectorizer(this);
+
+	m_editor.uninitialize();
+
+	destroyDevice();
+
+	//m_pPrinterDevice.release();
+
+	//::ReleaseDC(m_hWnd, m_hWindowDC);
+	//m_hWindowDC = 0;
+
+	__super::OnDestroy();
+
+	// TODO: 在此处添加消息处理程序代码
 }

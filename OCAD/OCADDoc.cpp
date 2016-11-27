@@ -121,11 +121,6 @@ BOOL COCADDoc::OnNewDocument()
 		return FALSE;
 	}
 
-	//
-	// 初始化命令上下文
-	//m_pCmdCtx.release();
-	//m_pCmdCtx = NULL;
-
 	return TRUE;
 }
 
