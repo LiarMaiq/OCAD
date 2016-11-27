@@ -63,3 +63,28 @@
 #endif
 
 
+
+
+#ifndef _TOOLKIT_IN_DLL_
+#define _TOOLKIT_IN_DLL_
+#endif
+
+#ifdef _DEBUG
+#pragma comment(lib,"../lib/win32_debug/TD_ExamplesCommon.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Key.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_PdfExport.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_PDFToolkit.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Gs.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Db.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_DbRoot.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Gi.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_SpatialIndex.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Ge.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Root.lib")
+#pragma comment(lib,"../lib/win32_debug/TD_Alloc.lib")
+
+#else
+
+
+#endif // _DEBUG
+

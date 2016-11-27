@@ -13,7 +13,9 @@
 
 
 // TODO:  在此处引用程序需要的其他头文件
+#ifndef _TOOLKIT_IN_DLL_
 #define _TOOLKIT_IN_DLL_
+#endif
 
 #include "OdaCommon.h"
 #include "RxDynamicModule.h"

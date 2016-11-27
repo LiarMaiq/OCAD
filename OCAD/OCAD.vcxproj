@@ -90,15 +90,17 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_TOOLKIT_IN_DLL_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\include\teigha\include;..\include\teigha\examples;..\include\teigha\Extensions\ExServices</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <RegisterOutput>true</RegisterOutput>
-      <AdditionalDependencies>TD_ExamplesCommon.lib;TD_Key.lib;TD_PdfExport.lib;TD_PDFToolkit.lib;TD_Gs.lib;TD_Db.lib;TD_DbRoot.lib;TD_Gi.lib;TD_SpatialIndex.lib;TD_Ge.lib;TD_Root.lib;TD_Alloc.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\lib\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

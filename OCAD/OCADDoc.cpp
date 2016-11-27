@@ -123,8 +123,8 @@ BOOL COCADDoc::OnNewDocument()
 
 	//
 	// 初始化命令上下文
-	m_pCmdCtx.release();
-	m_pCmdCtx = NULL;
+	//m_pCmdCtx.release();
+	//m_pCmdCtx = NULL;
 
 	return TRUE;
 }
@@ -241,7 +241,7 @@ BOOL COCADDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	/**********************************************************************/
 	try
 	{
-		m_pDb = theApp.openFile(lpszPathName/*, true, false*/);
+		m_pDb = theApp.readFile/*openFile*/(lpszPathName, true, false);
 	}
 	catch (OdError& /*e*/)
 	{
@@ -456,15 +456,17 @@ void COCADDoc::OnTest()
 	//OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
 	//pUserIO->getPoint(L"pt");
 	//MessageBox(GetView()->GetSafeHwnd(), L"Test Complate", NULL, NULL);
-	ExecuteCommand("line");
+	//ExecuteCommand("line");
 }
-
 
 
 
 void COCADDoc::OnTest2()
 {
 	// TODO: 在此添加命令处理程序代码
-	OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
-	pUserIO->getPoint(L"pt");
+	/*OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
+	pUserIO->getPoint(L"pt");*/
+
+
+
 }
