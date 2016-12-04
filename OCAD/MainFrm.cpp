@@ -86,9 +86,23 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CMainFrame::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CMainFrame::OnFilePrintPreview)
 	ON_UPDATE_COMMAND_UI(ID_FILE_PRINT_PREVIEW, &CMainFrame::OnUpdateFilePrintPreview)
+	ON_UPDATE_COMMAND_UI(ID_STATUSBAR_PANE1, &CMainFrame::OnUpdateIdsStatusPane1)
+	ON_UPDATE_COMMAND_UI(ID_STATUSBAR_PANE2, &CMainFrame::OnUpdateIdsStatusPane2)
 END_MESSAGE_MAP()
 
 // CMainFrame 构造/析构
+
+void CMainFrame::setStatusText(int nColumn, LPCTSTR msg)
+{
+	if (nColumn == 0)
+	{
+		m_statusText1 = msg;
+	}
+	else
+	{
+		m_statusText2 = msg;
+	}
+}
 
 CMainFrame::CMainFrame()
 {
@@ -110,36 +124,26 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_wndRibbonBar.Create(this);
 	m_wndRibbonBar.LoadFromResource(IDR_RIBBON);
 
-	//if (!m_wndStatusBar.Create(this))
-	//{
-	//	TRACE0("未能创建状态栏\n");
-	//	return -1;      // 未能创建
-	//}
-
-	//CString strTitlePane1;
-	//CString strTitlePane2;
-	//bNameValid = strTitlePane1.LoadString(IDS_STATUS_PANE1);
-	//ASSERT(bNameValid);
-	//bNameValid = strTitlePane2.LoadString(IDS_STATUS_PANE2);
-	//ASSERT(bNameValid);
-	//m_wndStatusBar.AddElement(new CMFCRibbonStatusBarPane(ID_STATUSBAR_PANE1, strTitlePane1, TRUE), strTitlePane1);
-	//m_wndStatusBar.AddExtendedElement(new CMFCRibbonStatusBarPane(ID_STATUSBAR_PANE2, strTitlePane2, TRUE), strTitlePane2);
-
-	
-	
-	if (!m_wndStatusBar.Create(this) ||
-		!m_wndStatusBar.SetIndicators(indicators,
-			sizeof(indicators) / sizeof(UINT)))
+	if (!m_wndStatusBar.Create(this))
 	{
-		TRACE0("Failed to create status bar\n");
-		return -1;      // fail to create
+		TRACE0("未能创建状态栏\n");
+		return -1;      // 未能创建
 	}
 
-	m_wndStatusBar.SetPaneInfo(0, 0, SBPS_NORMAL, 80);             // guv
-	m_wndStatusBar.SetPaneStyle(1, SBPS_OWNERDRAW | SBPS_STRETCH);
-	
-	
-	
+	CString strTitlePane1;
+	CString strTitlePane2;
+	bNameValid = strTitlePane1.LoadString(IDS_STATUS_PANE1);
+	ASSERT(bNameValid);
+	bNameValid = strTitlePane2.LoadString(IDS_STATUS_PANE2);
+	ASSERT(bNameValid);
+	m_wndStatusBar.AddElement(new CMFCRibbonStatusBarPane(ID_STATUSBAR_PANE1, strTitlePane1, TRUE), strTitlePane1);
+	m_wndStatusBar.AddExtendedElement(new CMFCRibbonStatusBarPane(ID_STATUSBAR_PANE2, strTitlePane2, TRUE), strTitlePane2);
+	CMFCRibbonStatusBarPane* pElement = (CMFCRibbonStatusBarPane*)m_wndStatusBar.GetElement(0);
+	CMFCRibbonStatusBarPane* pExElement = (CMFCRibbonStatusBarPane*)m_wndStatusBar.GetExElement(0);
+	pElement->SetAlmostLargeText(TEXT("0123456789012345678901234567890123456789"));
+	pExElement->SetAlmostLargeText(TEXT("0123456789012345678901234567890123456789"));
+
+
 	// 启用 Visual Studio 2005 样式停靠窗口行为
 	CDockingManager::SetDockingMode(DT_SMART);
 	// 启用 Visual Studio 2005 样式停靠窗口自动隐藏行为
@@ -280,4 +284,20 @@ void CMainFrame::OnFilePrintPreview()
 void CMainFrame::OnUpdateFilePrintPreview(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(IsPrintPreview());
+}
+
+
+void CMainFrame::OnUpdateIdsStatusPane1(CCmdUI *pCmdUI)
+{
+	// TODO: 在此添加命令更新用户界面处理程序代码
+	pCmdUI->Enable();
+	pCmdUI->SetText(m_statusText1);
+}
+
+
+void CMainFrame::OnUpdateIdsStatusPane2(CCmdUI *pCmdUI)
+{
+	// TODO: 在此添加命令更新用户界面处理程序代码
+	pCmdUI->Enable();
+	pCmdUI->SetText(m_statusText2);
 }

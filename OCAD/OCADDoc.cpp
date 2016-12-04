@@ -443,25 +443,14 @@ OdDbSelectionSetPtr COCADDoc::selectionSet() const
 //	Empty();
 //}
 
+
 void COCADDoc::OnTest()
 {
-	// TODO: 在此添加命令处理程序代码
-	//PrintModules(GetCurrentProcessId());
-	//cmdCtx()->dbUserIO()->getPoint(L"pt");
-	//OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
-	//pUserIO->getPoint(L"pt");
-	//MessageBox(GetView()->GetSafeHwnd(), L"Test Complate", NULL, NULL);
-	//ExecuteCommand("line");
 }
 
 
 
 void COCADDoc::OnTest2()
 {
-	// TODO: 在此添加命令处理程序代码
-	/*OdDbUserIOPtr pUserIO = cmdCtx()->userIO();
-	pUserIO->getPoint(L"pt");*/
-
-
 
 }

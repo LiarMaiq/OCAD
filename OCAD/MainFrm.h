@@ -32,7 +32,9 @@ private:
 	LARGE_INTEGER m_pc1;
 
 public:
-	CStatusBarColor  m_wndStatusBar;
+	//CStatusBarColor  m_wndStatusBar;
+	CString m_statusText1;
+	CString m_statusText2;
 
 public:
 	inline void StartTimer()
@@ -55,7 +57,7 @@ public:
 		}
 	}
 	void setStatusText(LPCTSTR msg) { setStatusText(1, msg); }
-	void setStatusText(int nColumn, LPCTSTR msg) { m_wndStatusBar.SetPaneText(nColumn, msg); }
+	void setStatusText(int nColumn, LPCTSTR msg);
 
 
 
@@ -88,7 +90,7 @@ protected:  // 控件条嵌入成员
 	CMFCRibbonBar     m_wndRibbonBar;
 	CMFCRibbonApplicationButton m_MainButton;
 	CMFCToolBarImages m_PanelImages;
-//	CMFCRibbonStatusBar  m_wndStatusBar;
+	CMFCRibbonStatusBar  m_wndStatusBar;
 
 // 生成的消息映射函数
 protected:
@@ -99,6 +101,9 @@ protected:
 	afx_msg void OnFilePrintPreview();
 	afx_msg void OnUpdateFilePrintPreview(CCmdUI* pCmdUI);
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnUpdateIdsStatusPane1(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateIdsStatusPane2(CCmdUI *pCmdUI);
 };
 
 

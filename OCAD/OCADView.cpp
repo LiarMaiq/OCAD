@@ -383,6 +383,8 @@ void COCADView::OnMouseMove(UINT nFlags, CPoint point)
 		}
 	}
 
+	OdGePoint3d pt = m_editor.toEyeToWorld(point.x, point.y);
+	theApp.setStatusText(0, OdString().format(TEXT("x=%f  y=%f  z=%f"), pt.x, pt.y, pt.z));
 
 	//if (GetKeyState(VK_MBUTTON)<0)
 	//{

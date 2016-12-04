@@ -730,19 +730,19 @@ OdDbDatabasePtr COCADApp::openFile(LPCTSTR lpszPathName)
 	catch (const OdError& e)
 	{
 		pDb = 0;
-		pMFrame->m_wndStatusBar.SetPaneText(0, _T(""));
+		//pMFrame->m_wndStatusBar.SetPaneText(0, _T(""));
 		reportError(_T("Loading Error..."), e);
 	}
 	catch (const UserBreak&)
 	{
 		pDb = 0;
-		pMFrame->m_wndStatusBar.SetPaneText(0, _T(""));
+		//pMFrame->m_wndStatusBar.SetPaneText(0, _T(""));
 		setStatusText(_T("Operation was canceled by user."));
 	}
 	catch (std::bad_alloc&)
 	{
 		pDb = 0;
-		pMFrame->m_wndStatusBar.SetPaneText(0, _T(""));
+		//pMFrame->m_wndStatusBar.SetPaneText(0, _T(""));
 		setStatusText(_T("Memory Allocation Error..."));
 	}
 
