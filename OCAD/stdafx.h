@@ -70,6 +70,8 @@
 #endif
 
 #ifdef _DEBUG
+#pragma comment(lib,"../Debug/SvgExport.lib")
+//ODA
 #pragma comment(lib,"../lib/win32_debug/TD_ExamplesCommon.lib")
 #pragma comment(lib,"../lib/win32_debug/TD_Key.lib")
 #pragma comment(lib,"../lib/win32_debug/TD_PdfExport.lib")

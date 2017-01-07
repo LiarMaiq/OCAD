@@ -443,14 +443,116 @@ OdDbSelectionSetPtr COCADDoc::selectionSet() const
 //	Empty();
 //}
 
+//#include "DbSpline.h"
+//#include "DbPolyline.h"
+//#include "DbBlockTableRecord.h"
+//#include "Ge/GeSplineEnt3d.h"
+//
+//#include "DbLine.h"
+//#include "SvgWrappers.h"
+//#include "MemoryStream.h"
+//
+//using namespace TD_SVG_EXPORT;
+//using namespace xml;
+//int Attribute::_doublePrecision = 6;
+//
+//
+//void COCADDoc::OnTest()
+//{
+//	xml::Node* _svgRoot;
+//	OdGsDCRect outputRect;
+//	outputRect.m_min = OdGsDCPoint(-800, -800);
+//	outputRect.m_max = OdGsDCPoint(800, 800);
+//	_svgRoot = new svg::RootNode(outputRect, RGB(255, 255, 255)/*_properties->get_BackGround()*/);
+//
+//
+//	OdDbBlockTableRecordPtr pMs = m_pDb->getModelSpaceId().safeOpenObject(OdDb::kForRead);
+//	OdDbObjectIteratorPtr pObjIter = pMs->newIterator();
+//	while (!pObjIter->done())
+//	{
+//		OdDbEntityPtr pEnt = pObjIter->entity(OdDb::kForRead);
+//		if (pEnt->isKindOf(OdDbLine::desc()))
+//		{
+//			OdDbLinePtr pLine = pEnt;
+//			OdDb::LineWeight lw = pLine->lineWeight();
+//			OdCmColor color = pLine->color();
+//			OdGePoint3d ptS = pLine->startPoint();
+//			OdGePoint3d ptE = pLine->endPoint();
+//			OdGePoint3d pts[2];
+//			pts[0] = ptS;
+//			pts[1] = ptE;
+//
+//			xml::Node* _currentNode = _svgRoot->addChild(OD_T("g"));
+//			xml::Node* pPolylineNode = _currentNode->addChild(new xml::Node(OD_T("polyline")));
+//			pPolylineNode->addAttribute(svg::Points(2, pts));
+//			pPolylineNode->addAttribute(L"stroke", L"rgb(0, 0, 0)");
+//			pPolylineNode->addAttribute(L"stroke-width", L"0.5");
+//		}
+//		pObjIter->step();
+//	}
+//
+//	// "Output" property must be set before exporting
+//	OdMemoryStreamPtr stream = OdMemoryStream::createNew();/* = _properties->get_Output()*/;
+//	(*stream) << OdString(OD_T("<?xml version=\"1.0\" standalone=\"no\"?>\r\n"));
+//	(*stream) << *_svgRoot;
+//
+//	CFile svgFile;
+//	svgFile.Open(L"d:\\a.svg", CFile::modeCreate | CFile::modeReadWrite);
+//	OdUInt64 length = stream->length();
+//	OdUInt8 *buffer = new OdUInt8[length];
+//	stream->seek(0, OdDb::FilerSeekType::kSeekFromStart);
+//	stream->getBytes(buffer, length);
+//	svgFile.Write(buffer, stream->length());
+//
+//	delete[] buffer;
+//	delete _svgRoot;
+//}
 
+#include "../SvgExport/SvgExport.h"
 void COCADDoc::OnTest()
 {
+	exportSvg(m_pDb,"d:\\a.svg");
 }
-
-
 
 void COCADDoc::OnTest2()
 {
+	//OdDbSplinePtr pSpline = OdDbSpline::createObject();
+	//OdDbPolylinePtr pPl = OdDbPolyline::createObject();
+	//pSpline->setDatabaseDefaults(m_pDb);
+	//pPl->setDatabaseDefaults(m_pDb);
+	//OdDbBlockTableRecordPtr pMs = m_pDb->getModelSpaceId().safeOpenObject(OdDb::kForWrite);
+	//pMs->appendOdDbEntity(pSpline);
+	//pMs->appendOdDbEntity(pPl);
 
+	//OdDbSpline::SplineType type = pSpline->type();
+
+	//OdGePoint3d point;
+	//double dx = 1;
+	//double dy = 1;
+
+	//OdGePoint3dArray fitPoints;
+	///*fitPoints.push_back(point + OdGeVector3d(1.0 * dx, 1.0 * dy, 0.0));
+	//fitPoints.push_back(point + OdGeVector3d(3.0 * dx, 6.0 * dy, 0.0));
+	//fitPoints.push_back(point + OdGeVector3d(4.0 * dx, 2.0 * dy, 0.0));
+	//fitPoints.push_back(point + OdGeVector3d(7.0 * dx, 7.0 * dy, 0.0));*/
+	//fitPoints.push_back(OdGePoint3d(0,0,0));
+	//fitPoints.push_back(OdGePoint3d(100,100,0));
+	//fitPoints.push_back(OdGePoint3d(200,0,0));
+	//fitPoints.push_back(OdGePoint3d(300,100,0));
+	//fitPoints.push_back(OdGePoint3d(400, 0, 0));
+	//fitPoints.push_back(OdGePoint3d(500, -100, 0));
+
+	//pSpline->setFitData(
+	//	fitPoints,                    // Fit Points
+	//	3,                            // Degree
+	//	0.0,                          // Fit tolerance
+	//	OdGeVector3d(-1.0, 0.0, 0.0),  // startTangent
+	//	OdGeVector3d(0.0, -1.0, 0.0)); // endTangent
+
+	//pPl->addVertexAt(0, OdGePoint2d(0, 0));
+	//pPl->addVertexAt(1, OdGePoint2d(100, 100));
+	//pPl->addVertexAt(2, OdGePoint2d(200, 0));
+	//pPl->addVertexAt(3, OdGePoint2d(300, 100));
+	//pPl->addVertexAt(4, OdGePoint2d(400, 0));
+	//pPl->addVertexAt(4, OdGePoint2d(500, -100));
 }
